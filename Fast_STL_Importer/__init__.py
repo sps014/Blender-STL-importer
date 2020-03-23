@@ -28,7 +28,7 @@ from bpy_extras.io_utils import ImportHelper
 
 class FastImportSTL(bpy.types.Operator,ImportHelper):
     """Load a STL file"""
-    bl_idname = "import_fast.stl"
+    bl_idname = "import_scene.stl"
     bl_label = "Import STL"
     bl_options = {'UNDO'}
 
@@ -37,24 +37,8 @@ class FastImportSTL(bpy.types.Operator,ImportHelper):
 
     def execute(self, context):
         print(self.filepath)
-        pass
+        return {'FINISHED'}
     
-
-
-class ImportSVG(bpy.types.Operator, ImportHelper):
-    """Load a STL file"""
-    bl_idname = ""
-    bl_label = "Import STL"
-    bl_options = {'UNDO'}
-
-    filename_ext = ".stl"
-    filter_glob: StringProperty(default="*.stl", options={'HIDDEN'})
-
-    def execute(self, context):
-        pass
-        #from . import import_svg
-
-        #return import_svg.load(self, context, filepath=self.filepath)
 
 
 def menu_func_import(self, context):
