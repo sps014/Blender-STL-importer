@@ -36,13 +36,14 @@ class FastImportSTL(bpy.types.Operator,ImportHelper):
     filter_glob: StringProperty(default="*.stl", options={'HIDDEN'})
 
     def execute(self, context):
+        print(self.filepath)
         pass
     
 
 
 class ImportSVG(bpy.types.Operator, ImportHelper):
     """Load a STL file"""
-    bl_idname = "import_curve.stl"
+    bl_idname = ""
     bl_label = "Import STL"
     bl_options = {'UNDO'}
 
@@ -57,13 +58,14 @@ class ImportSVG(bpy.types.Operator, ImportHelper):
 
 
 def menu_func_import(self, context):
-    self.layout.operator(ImportSVG.bl_idname,
+    self.layout.operator(FastImportSTL.bl_idname,
         text="Fast Importer")
 
 
 def register():
+    print("Hello")
     bpy.utils.register_class(FastImportSTL)
-
+   
     bpy.types.TOPBAR_MT_file_import.append(menu_func_import)
 
 
