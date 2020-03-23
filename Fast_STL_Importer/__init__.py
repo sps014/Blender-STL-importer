@@ -36,7 +36,7 @@ class FastImportSTL(bpy.types.Operator,ImportHelper):
     filter_glob: StringProperty(default="*.stl", options={'HIDDEN'})
 
     def execute(self, context):
-        print(self.filepath)
+        print("File Path is:",self.filepath)
         return {'FINISHED'}
     
 
@@ -47,7 +47,7 @@ def menu_func_import(self, context):
 
 
 def register():
-    print("Hello")
+    
     bpy.utils.register_class(FastImportSTL)
    
     bpy.types.TOPBAR_MT_file_import.append(menu_func_import)
