@@ -15,10 +15,10 @@ bl_info = {
 
 # To support reload properly, try to access a package var,
 # if it's there, reload everything
-if "bpy" in locals():
+""" if "bpy" in locals():
     import importlib
     if "import_svg" in locals():
-        importlib.reload(import_svg)
+        importlib.reload(import_svg) """
 
 
 import bpy
@@ -38,19 +38,20 @@ class FastImportSTL(bpy.types.Operator,ImportHelper):
     def execute(self, context):
         print("File Path is:",self.filepath)
         from . import spam
+        print(spam.system("OK"))
         return {'FINISHED'}
     
 
 
 def menu_func_import(self, context):
     self.layout.operator(FastImportSTL.bl_idname,
-        text="Fast Importer")
+        text="Fast STL Importer (.stl)")
 
 
 def register():
 
     bpy.utils.register_class(FastImportSTL)
-   
+
     bpy.types.TOPBAR_MT_file_import.append(menu_func_import)
 
 
