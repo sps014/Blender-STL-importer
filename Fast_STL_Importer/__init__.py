@@ -37,6 +37,7 @@ class FastImportSTL(bpy.types.Operator,ImportHelper):
 
     def execute(self, context):
         print("File Path is:",self.filepath)
+        from . import spam
         return {'FINISHED'}
     
 
@@ -47,10 +48,11 @@ def menu_func_import(self, context):
 
 
 def register():
-    
+
     bpy.utils.register_class(FastImportSTL)
    
     bpy.types.TOPBAR_MT_file_import.append(menu_func_import)
+
 
 
 def unregister():
