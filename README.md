@@ -1,2 +1,2 @@
-# GSoC-Blender
+# Blender fast STL importer plugin
  
